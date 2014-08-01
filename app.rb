@@ -21,6 +21,9 @@ get '/' do
 
   respond_to do |format|
     format.html { erb :index }
+
+    # This is the endpoing that the autocomplete will hit to get results
+    # It returns a JSON hash representing all of the movies
     format.json { json @movies }
   end
 end
