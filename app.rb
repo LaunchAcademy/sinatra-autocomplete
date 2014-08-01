@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/reloader'
 
 configure do
   set :views, 'app/views'
@@ -10,6 +11,6 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
 end
 
 get '/' do
-  @title = "Hello World"
+  @movies = Movie.all
   erb :index
 end
